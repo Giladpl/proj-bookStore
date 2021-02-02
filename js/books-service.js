@@ -64,31 +64,7 @@ function updateBook(val, newVal) {
 	saveToStorage(STORAGE_KEY, gBooks);
 	gActiveBook = null;
 }
-// function updateBook(newPrice) {
-// 	gActiveBook.bookPrice = newPrice;
-// 	saveToStorage(STORAGE_KEY, gBooks);
-// 	gActiveBook = null;
-// }
 
-// function addBookRating(bookRating) {
-// 	gActiveBook.rate = bookRating;
-// 	saveToStorage(STORAGE_KEY, gBooks);
-// 	gActiveBook = null;
-// }
-
-// function sortBy(type, direction) {
-// 	if (type === 'bookName') {
-// 		return gBooks.sort(function (book1, book2) {
-// 			return book2.bookName.localeCompare(book1.bookName) * diff
-// 		});
-// 	} else {
-// 		return gBooks.sort(function (book1, book2) {
-// 			return direction === 'ascending'
-// 				? book1.[bookPrice] - book2.bookPrice
-// 				: book2.bookPrice - book1.bookPrice;
-// 		});
-// 	}
-// }
 function sortBy(type, direction) {
 	if (type === 'bookName') {
 		return gBooks.sort(function (book1, book2) {
@@ -122,3 +98,4 @@ function _createBook(bookName, bookPrice, randomPic) {
 		bookAbout: makeLorem(30),
 	};
 }
+

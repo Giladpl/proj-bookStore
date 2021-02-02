@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="eng">
 
 <head>
   <meta charset="UTF-8">
@@ -10,64 +10,82 @@
 
 <body onload="onInit()">
   <div>
-    <h1>Welcome to my bookshop</h1>
+    <h1 data-trans="title">Welcome to my bookshop</h1>
   </div>
-  <div class="table-container">
-    <table class="table">
-      <thead class="table-head">
-        <tr>
-          <th>#</th>
-          <th>ID</th>
-          <th class="btn-sort"><button title="Sort in Descending Order"
-              onclick="onSortBy('bookName', 'descending')">&downarrow;</button> Title
-            <button title="Sort in Ascending Order" onclick="onSortBy('bookName', 'ascending')">&uparrow;</button></th>
-          <th class="btn-sort"><button title="Sort in Descending Order"
-              onclick="onSortBy('bookPrice', 'descending')">&downarrow;</button> Price
-            <button title="Sort in Ascending Order" onclick="onSortBy('bookPrice', 'ascending')">&uparrow;</button></th>
-          <th colspan="3">Action</th>
-        </tr>
-      </thead>
-      <tbody class="table-body">
-      </tbody>
-    </table>
+  <div class="lang-select flex-center">
+    <select onchange="onSetLang(this.value)">
+      <option value="eng">English</option>
+      <option value="he">עברית</option>
+    </select>
   </div>
-  <div class="modal-update hide">
-    <form onsubmit="onUpdatePrice(event)">
-      <p>Enter a new price: <input type="number" min="1" name="update-price"></p>
-      <button>submit</button>
-    </form>
-  </div>
-  <div class="pagging-container">
-    <button onclick="onPrevPage()">&#9668;</button>
-    <div class="pagging"></div>
-    <button onclick="onNextPage()">&#9658;</button>
-  </div>
-  <div class="new-book">
-    <h3>Add New Book:</h3>
-    <form onsubmit="onAddBook(event)">
-      <input type="text" placeholder="Book's Title" name="bookName" required>
-      <input type="number" placeholder="Book's Price" name="bookPrice" min="1" required>
-      <input type="submit">
-    </form>
-  </div>
-  <div class="modal-container">
-    <div class="modal-read hide">
-      <div onclick="onToggleModal()" class="close-modal">✖</div>
-      <div class="name-price-img">
-        <img class="modal-bookImg">
-        <h3>Book's name: <span class="modal-bookName"></span></h3>
-        <h3>Book's price: $<span class="modal-bookPrice"></span></h3>
-      </div>
-      <p class="modal-bookAbout"></p>
-      <form class="rating-form" onsubmit="onChangeRating(event)">
-        <input type="number" min="1" max="10" placeholder="Rating" name="rating" />
-        <input type="submit">
+  <div class="main-container">
+    <div class="table-container">
+      <table class="table">
+        <thead class="table-head">
+          <tr>
+            <th>#</th>
+            <th data-trans="header-id">ID</th>
+            <th class="btn-sort"><button title="Sort in Descending Order"
+                onclick="onSortBy('bookName', 'descending')">&downarrow;</button> <span
+                data-trans="header-title">Title</span>
+              <button title="Sort in Ascending Order" onclick="onSortBy('bookName', 'ascending')">&uparrow;</button>
+            </th>
+            <th class="btn-sort"><button title="Sort in Descending Order"
+                onclick="onSortBy('bookPrice', 'descending')">&downarrow;</button><span
+                data-trans="header-price">Price</span>
+              <button title="Sort in Ascending Order" onclick="onSortBy('bookPrice', 'ascending')">&uparrow;</button>
+            </th>
+            <th data-trans="header-action" colspan="3">Action</th>
+          </tr>
+        </thead>
+        <tbody class="table-body">
+        </tbody>
+      </table>
+    </div>
+    <div class="modal-update hide">
+      <form onsubmit="onUpdatePrice(event)">
+        <p> <span data-trans="update-price">Enter a new price: </span><input type="number" min="1" name="update-price">
+        </p>
+        <button data-trans="btn-submit">submit</button>
       </form>
     </div>
-    <div class="rating-container">Current Rating: <span class="curr-rating"></span></div>
+    <div class="paging-container">
+      <!-- <button onclick="onPrevPage()">&#9668;</button> -->
+      <div class="paging"></div>
+      <!-- <button onclick="onNextPage()">&#9658;</button> -->
+    </div>
+    <div class="new-book">
+      <h3 data-trans="add-book-title">Add New Book:</h3>
+      <form onsubmit="onAddBook(event)">
+        <input data-trans="add-title-placeholder" type="text" placeholder="Book's Title" name="bookName" required>
+        <input data-trans="add-price-placeholder" type="number" placeholder="Book's Price" name="bookPrice" min="1"
+          required>
+        <button data-trans="btn-submit">Submit</button>
+      </form>
+    </div>
+    <div class="modal-container">
+      <div class="modal-read hide">
+        <div onclick="onToggleModal()" class="close-modal">✖</div>
+        <div class="name-price-img">
+          <img class="modal-bookImg" src="">
+          <h3> <span data-trans="modal-book-name">Book's name:</span> <span class="modal-bookName"></span></h3>
+          <h3> <span data-trans="modal-book-price">Book's price: $</span> <span class="modal-bookPrice"></span></h3>
+        </div>
+        <p class="modal-bookAbout"></p>
+        <form class="rating-form" onsubmit="onChangeRating(event)">
+          <input data-trans="modal-rating-placeholder" type="number" min="1" max="10" placeholder="Rating"
+            name="rating" />
+          <button data-trans="btn-submit">Submit</button>
+        </form>
+        <div class="rating-container"> <span data-trans="modal-rating-current">Current Rating: </span><span
+            class="curr-rating"></span>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="overlay hide"></div>
 
+  <script src="js/i18n-service.js"></script>
   <script src="js/storage-service.js"></script>
   <script src="js/util-service.js"></script>
   <script src="js/books-service.js"></script>

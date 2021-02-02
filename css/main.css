@@ -9,6 +9,10 @@ body {
   background-size: cover;
 }
 
+body.rtl {
+  direction: rtl;
+}
+
 div h1 {
   text-align: center;
   font-family: cursive;
@@ -16,6 +20,13 @@ div h1 {
   text-decoration: underline;
   text-shadow: 2px 2px #746d6d;
   ;
+}
+
+
+.flex-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .table-container,
@@ -30,7 +41,8 @@ div h1 {
 .table {
   border: 1px solid black;
   border-collapse: collapse;
-  width: 55%;
+  width: 60%;
+  table-layout: fixed;
   background-color: rgba(211, 203, 203, 0.733);
   box-shadow: 5px 10px;
 }
@@ -63,6 +75,10 @@ button:hover {
   background-color: rgb(202, 191, 191);
 }
 
+/* .btn-read, .btn-add, .btn-update{
+  padding: 10px;
+} */
+
 th button {
   margin: 0 10px;
   background: none;
@@ -72,29 +88,29 @@ th button {
 }
 
 .new-book {
-  position: fixed;
+  /* position: fixed; */
   background-color: rgba(238, 228, 228, 0.733);
-  top: 460px;
+  top: 470px;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 600px;
-  /* margin: auto; */
+  margin: 70px 50%;
 }
 
 .new-book h3 {
   padding: 5px;
 }
 
-.pagging-container {
-  margin-top: 5px;
-  display: flex;
-  position: fixed;
-  top: 400px;
-  left: 50%;
+.paging-container {
+  margin: 30px 50%;
+  /* display: flex; */
+  /* position: fixed; */
+  /* top: 420px; */
+  /* left: 50%; */
   transform: translate(-50%, -50%);
 }
 
-.pagging {
+.paging {
   display: flex;
   justify-content: center;
 }
@@ -121,9 +137,9 @@ th button {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 70%;
+  width: 40%;
   height: auto;
-  background-color: rgb(73, 73, 99);
+  background-color: rgba(73, 73, 99, 0.719);
   padding: 6rem;
   border-radius: 5px;
   box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
@@ -132,6 +148,8 @@ th button {
   font-size: 20px;
   color: whitesmoke;
   animation: fadeIn 0.8s;
+  outline: 1px solid black;
+
 }
 
 @keyframes fadeIn {
